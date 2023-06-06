@@ -14,6 +14,7 @@ const ColorsContainer = styled.div`
   height: ${(props) => (props.id !== null ? "calc(100vh - 50px)" : "100%")};
   overflow: hidden;
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: ${(props) =>
+      props.id !== null ? "1fr" : "repeat(4, 1fr)"};
   }
 `;

@@ -94,19 +94,25 @@ export default function CreateNewPalette() {
         </Button>
       </HeaderContainer>
       <CreateNewPaletteContainer>
-        <ColorsBox>{boxs}</ColorsBox>
         <Add>
-          <ChromePicker color={background} onChange={handleChangeComplete} />
-          <TextField
-            error={error}
-            onChange={({ target }) => setColorName(target.value)}
-            helperText={error ? "you have already or empty" : ""}
-            id="standard-basic"
-            label="Color Name"
-            variant="standard"
+          <ChromePicker
+            width="100%"
+            color={background}
+            onChange={handleChangeComplete}
           />
-          <AddButttn onClick={() => addColor()}>Add New Color</AddButttn>
+          <InputNameContaine>
+            <TextField
+              error={error}
+              onChange={({ target }) => setColorName(target.value)}
+              helperText={error ? "you have already or empty" : ""}
+              id="standard-basic"
+              label="Color Name"
+              variant="standard"
+            />
+            <AddButttn onClick={() => addColor()}>Add New Color</AddButttn>
+          </InputNameContaine>
         </Add>
+        <ColorsBox>{boxs}</ColorsBox>
         <Modal
           isCreateFolderAppeared={Folderstate}
           showCreateFolderModal={showCreateFolderModal}
@@ -118,6 +124,12 @@ export default function CreateNewPalette() {
 
 const CreateNewPaletteContainer = styled.div`
   display: flex;
+  @media (max-width: 992px) {
+    margin-top: 700px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 450px;
+  }
 `;
 const HeaderContainer = styled.div`
   position: fixed;
@@ -145,6 +157,9 @@ const ColorsBox = styled.div`
   margin-top: 50px;
   flex-wrap: wrap;
   justify-content: flex-end;
+  @media (max-width: 992px) {
+    margin-left: 20px;
+  }
 `;
 
 const ColorBox = styled.div`
@@ -175,12 +190,25 @@ const Add = styled.div`
   display: flex;
   position: fixed;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
   padding-inline: 20px;
   height: 100vh;
   width: 260px;
   padding-top: 200px;
   border-right: 2px solid rgba(0, 0, 0, 0.1);
+  @media (max-width: 992px) {
+    width: 100%;
+    height: 200px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-top: 0px;
+    top: 0px;
+  }
+`;
+const InputNameContaine = styled.div`
+  width: 100%;
+  > div {
+    width: 100%;
+  }
 `;
 const AddButttn = styled.button`
   cursor: pointer;
@@ -188,7 +216,9 @@ const AddButttn = styled.button`
   background-color: #4688f4;
   border: none;
   height: 50px;
+  width: 100%;
   color: white;
+  margin-top: 20px;
   font-weight: bold;
   transition: 0.2s;
   &:hover {

@@ -58,6 +58,7 @@ const ColorBlock = styled.div`
   &:hover > ${CopieButton} {
     opacity: 1;
   }
+
   @media (max-width: 768px) {
     height: 100px;
   }
@@ -69,6 +70,12 @@ const ColorName = styled.span`
   padding: 5px;
   font-weight: bold;
   text-transform: uppercase;
+  @media (max-width: 992px) {
+    font-size: 13px;
+  }
+  @media (max-width: 768px) {
+    font-size: 17px;
+  }
 `;
 
 const MoreColors = styled.button`
@@ -80,6 +87,13 @@ const MoreColors = styled.button`
   padding: 5px 15px;
   text-transform: uppercase;
   border: none;
+  @media (max-width: 992px) {
+    font-size: 13px;
+    padding: 5px 5px;
+  }
+  @media (max-width: 768px) {
+    font-size: 17px;
+  }
 `;
 
 const ani = keyframes`

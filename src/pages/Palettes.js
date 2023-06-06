@@ -32,14 +32,20 @@ export default function Palettes() {
 const PalettesContainer = styled.div`
   background-color: #3c40c6;
   padding-block: 40px;
-  padding-inline: 500px;
+  @media (max-width: 768px) {
+    padding-inline: 20px;
+  }
 `;
 const PalettesBox = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(300px, 300px));
+  place-content: center;
   gap: 20px;
   height: 90%;
   background-color: #3c40c6;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const Cont = styled.div`
   pointer-events: none;
@@ -85,6 +91,9 @@ const PaletteBox = styled(Link)`
   font-family: "Barlow";
   font-weight: bold;
   text-decoration: none;
+  @media (max-width: 768px) {
+    max-height: 300px;
+  }
 `;
 const PaletteInfo = styled.div`
   display: flex;
